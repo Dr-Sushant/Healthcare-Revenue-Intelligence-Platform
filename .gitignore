@@ -4,3 +4,17 @@ __pycache__/
 .env
 .vscode/
 data/raw/
+
+# Raw data
+data/*.csv
+data/*.xlsx
+data/*.xls
+data/*.pdf
+
+# Office temp files
+~$*
+.~lock.*
+
+# Virtual environment
+venv/
+__pycache__/
