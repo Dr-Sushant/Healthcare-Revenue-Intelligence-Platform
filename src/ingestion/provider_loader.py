@@ -18,6 +18,8 @@ PROVIDER_COLUMNS = [
     "DRG_Cd",
     "DRG_Desc",
     "Tot_Dschrgs",
+    "Avg_Tot_Pymt_Amt",
+    "Avg_Mdcr_Pymt_Amt",
 ]
 
 
