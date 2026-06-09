@@ -63,3 +63,34 @@ print(
         merged_df,
     ).to_string(index=False)
 )
+
+print("\nCheck suspected DRGs in FY2026 IPPS:")
+
+print(ipps_df[ipps_df["MS-DRG"].isin([453, 454, 455, 459, 460])])
+
+print("\nFY2026 Spinal Fusion DRGs:")
+
+print(
+    ipps_df[
+        ipps_df["MS-DRG Title"].str.contains(
+            "SPINAL",
+            case=False,
+            na=False,
+        )
+    ][
+        [
+            "MS-DRG",
+            "MS-DRG Title",
+            "Weights - Before Cap",
+        ]
+    ].to_string(index=False)
+)
+
+print("\nDeprecated DRG Report:")
+
+print(
+    quality_checks.deprecated_drg_report(
+        provider_df,
+        merged_df,
+    ).to_string(index=False)
+)

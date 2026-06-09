@@ -86,3 +86,18 @@ class QualityChecks:
         )
 
         return unmapped_df
+
+    def deprecated_drg_report(
+        self,
+        provider_df: pd.DataFrame,
+        merged_df: pd.DataFrame,
+    ) -> pd.DataFrame:
+
+        report = self.unmapped_drg_summary(
+            provider_df,
+            merged_df,
+        ).copy()
+
+        report["Potential_Status"] = "Absent from FY2026 IPPS"
+
+        return report
