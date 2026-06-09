@@ -47,3 +47,42 @@ class QualityChecks:
             (unmapped_count / len(provider_df)) * 100,
             2,
         )
+
+    def unmapped_drg_codes(
+        self,
+        provider_df: pd.DataFrame,
+        merged_df: pd.DataFrame,
+    ) -> pd.DataFrame:
+
+        mapped_drgs = set(merged_df["DRG_Cd"])
+
+        return (
+            provider_df[~provider_df["DRG_Cd"].isin(mapped_drgs)]
+            .groupby(
+                ["DRG_Cd", "DRG_Desc"],
+                as_index=False,
+            )
+            .size()
+            .sort_values(
+                "size",
+                ascending=False,
+            )
+        )
+
+    def unmapped_drg_summary(
+        self,
+        provider_df: pd.DataFrame,
+        merged_df: pd.DataFrame,
+    ) -> pd.DataFrame:
+
+        unmapped_df = self.unmapped_drg_codes(
+            provider_df,
+            merged_df,
+        ).copy()
+
+        unmapped_df["Percent_of_Unmapped"] = round(
+            (unmapped_df["size"] / unmapped_df["size"].sum()) * 100,
+            2,
+        )
+
+        return unmapped_df

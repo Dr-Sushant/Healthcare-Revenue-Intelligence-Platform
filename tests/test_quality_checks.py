@@ -45,3 +45,21 @@ print(
         merged_df,
     )
 )
+
+print("\nTop Unmapped DRGs:")
+
+print(
+    quality_checks.unmapped_drg_codes(
+        provider_df,
+        merged_df,
+    ).to_string()
+)
+
+print("\nUnmapped DRG Summary:")
+
+print(
+    quality_checks.unmapped_drg_summary(
+        provider_df,
+        merged_df,
+    ).to_string(index=False)
+)
