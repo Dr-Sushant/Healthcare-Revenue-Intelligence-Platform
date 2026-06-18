@@ -1,5 +1,5 @@
 body {
-    background-color: #0b1020;
+    background-color: #020B2D;
     color: white;
     font-family: Arial, sans-serif;
 }
@@ -7,14 +7,46 @@ body {
 .kpi-container {
     display: flex;
     justify-content: space-around;
-    margin-top: 30px;
+    margin-top: 20px;
+}
+
+.rank-card {
+    background-color: #071633;
+    border: 1px solid #00D4FF;
+    border-radius: 12px;
+
+    padding: 12px;
+    margin-bottom: 12px;
+
+    min-height: 160px;
+
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.15);
+}
+
+.rank-number {
+    color: #00D4FF;
+    margin: 0;
+    font-size: 32px;
+}
+
+.rank-text {
+    color: white;
+    margin-top: 8px;
+    font-size: 16px;
+    line-height: 1.2;
 }
 
 .kpi-card {
-    background-color: #111827;
-    border: 1px solid #00d4ff;
-    border-radius: 10px;
+    background-color: #071633;
+    border: 1px solid #00D4FF;
+    border-radius: 12px;
+
     padding: 20px;
-    width: 250px;
+
     text-align: center;
+
+    box-shadow: 0 0 12px rgba(0, 212, 255, 0.15);
+
+    flex: 1;
+
 }
